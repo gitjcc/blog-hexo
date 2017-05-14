@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JS 参数传递 · Blog</title><meta name="description" content="JS 参数传递 - Jesse"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/blog/favicon.ico"><link rel="stylesheet" href="/blog/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://gitjcc.github.io/blog/atom.xml" title="Blog"></head><body><div class="wrap"><header><a href="/blog/" class="logo-link"><img src="/blog/favicon.ico" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/blog/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/blog/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/gitjcc" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/blog/about.html" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JS 参数传递</h1><div class="post-info">2017年5月13日</div><div class="post-content"><p>本文讨论一下, 我对JS 参数传递的理解.</p>
+<h1 id="求值策略"><a href="#求值策略" class="headerlink" title="求值策略"></a>求值策略</h1><p><a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing" target="_blank" rel="external">Evaluation strategy -wikipedia</a></p>
+<p>其中call-by-sharing可以认为是特殊的call-by-value.</p>
+<a id="more"></a>
+<h1 id="JS数据类型"><a href="#JS数据类型" class="headerlink" title="JS数据类型"></a>JS数据类型</h1><p>JS有7种数据类型，其中Undefined、Null、Boolean、Number、String、Symbol可以称为基本类型，Object可以称为引用类型。</p>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><p>栈（stack）: 栈内存, 用来存放基本类型值和引用类型值在堆内存中的地址.</p>
+<p>堆（heap）: 堆内存, 用来存放所有引用类型值.</p>
+<h1 id="JS-变量"><a href="#JS-变量" class="headerlink" title="JS 变量"></a>JS 变量</h1><p>所谓变量的类型即其对应值的类型，因此变量可以分为基本类型、引用类型。</p>
+<h3 id="变量存储"><a href="#变量存储" class="headerlink" title="变量存储"></a>变量存储</h3><ul>
+<li>基本类型值: 存储在栈内存中，即直接存储在变量访问的位置。这是因为这些原始类型占据的空间是固定的，所以可将他们存储在较小的内存区域(栈)中。这样存储便于迅速查寻变量的值。</li>
+<li>引用类型值: 存储在堆内存中, 即变量标识的栈内存存储的是地址值(或者叫指针pointer), 指向存储引用类型值的堆内存地址.这是因为引用类型值占用的内存大小会改变，所以不能把它放在栈内存中，否 则会降低变量查寻的速度。</li>
+</ul>
+<h3 id="变量修改"><a href="#变量修改" class="headerlink" title="变量修改"></a>变量修改</h3><ul>
+<li>基本类型: 基本类型值一旦创建,不能被修改.</li>
+<li>引用类型: 直接给变量赋值,改变的是栈内存的地址值,使变量指向了另一块堆内存,原值不变. 修改变量的属性值, 是改变值本身,地址不变.</li>
+</ul>
+<h3 id="变量复制"><a href="#变量复制" class="headerlink" title="变量复制"></a>变量复制</h3><p>当从一个变量向另一个变量复制值时</p>
+<ul>
+<li>基本类型: 复制值到新变量标识的位置 (即call-by-value)</li>
+<li>引用类型: 复制地址值(指针pointer)到新变量标识的位置 (即call-by-sharing)</li>
+</ul>
+<h1 id="JS-函数参数"><a href="#JS-函数参数" class="headerlink" title="JS 函数参数"></a>JS 函数参数</h1><p>ECMAScript 中函数参数的传递与变量的复制相同, 基本类型传递的是数据值, 引用类型传递的是地址值. </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ECMAScript 中存在call-by-value和call-by-sharing两种求值策略. 如果认为call-by-sharing是特殊的call-by-value, 那么可以说ECMAScript 中所有函数的参数都是按值传递的。但说按引用传递(call-by-reference)是没有道理的.</p>
+<h1 id="Reference-amp-Further-reading"><a href="#Reference-amp-Further-reading" class="headerlink" title="Reference &amp; Further reading"></a>Reference &amp; Further reading</h1><p><a href="https://www.zhihu.com/question/27114726" target="_blank" rel="external">javascript传递参数如果是object的话，是按值传递还是按引用传递？</a></p>
+<p><a href="https://www.zhihu.com/question/51018162" target="_blank" rel="external">JavaScript中函数都是值传递吗？</a></p>
+<p><a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/#more-864" target="_blank" rel="external">ECMA-262-3 in detail. Chapter 8. Evaluation strategy.</a></p>
+<p><a href="http://skilldrick.co.uk/2010/12/clearing-up-the-confusion-around-javascript-references/" target="_blank" rel="external">Clearing up the confusion around JavaScript references</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing" target="_blank" rel="external">Evaluation strategy -wikipedia</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/blog/2017/JS数据类型/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://gitjcc.github.io/blog">Jesse</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

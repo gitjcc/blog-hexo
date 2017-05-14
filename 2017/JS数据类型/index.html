@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> JS 数据类型 · Blog</title><meta name="description" content="JS 数据类型 - Jesse"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/blog/favicon.ico"><link rel="stylesheet" href="/blog/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://gitjcc.github.io/blog/atom.xml" title="Blog"></head><body><div class="wrap"><header><a href="/blog/" class="logo-link"><img src="/blog/favicon.ico" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/blog/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/blog/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/gitjcc" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/blog/about.html" target="_self" class="nav-list-link">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JS 数据类型</h1><div class="post-info">2017年5月13日</div><div class="post-content"><p>本文试图讨论 JavaScript 的数据类型，和数据类型的判断。</p>
+<h2 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h2><p>JavaScript 是一种弱类型语言或者动态语言。即变量的类型是动态的，同一个变量可以保存不同类型的值。变量的类型就是值的类型，因此变量不用提前声明类型，变量的类型会在程序运行的过程中被确定。</p>
+<a id="more"></a>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>根据目前最新的 ECMAScript 标准，JavaScript 的数据类型一共有七种。（其中 Symbol 是ECMAScript 6 中新定义的类型。）</p>
+<p>7 种数据类型：</p>
+<ul>
+<li>Boolean : 布尔类型</li>
+<li>Number : 数值类型</li>
+<li>String : 字符串类型</li>
+<li>Undefined : Undefined 类型</li>
+<li>Null : Null 类型</li>
+<li>Symbol : 符号类型</li>
+<li>Object : 对象</li>
+</ul>
+<p>其中 Boolean、Number、String、Undefined、Null、Symbol可以称为简单类型（primitive type），而 Object 可以称为复杂类型（complex type）。<br>简单类型的值一旦被创建，就不能被修改，只有复杂类型 Object 的值可以被修改。</p>
+<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><p>布尔类型表示逻辑数据，可以有 true 和 false 两个值。</p>
+<h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><p>数值类型表示数字，值包括基于 IEEE 754 标准的双精度 64 位二进制格式的浮点数、+Infinity、-Infinity、NaN。</p>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p>字符串类型表示文本数据，值由零个或多个字符组成。</p>
+<h3 id="Undefined-类型"><a href="#Undefined-类型" class="headerlink" title="Undefined 类型"></a>Undefined 类型</h3><p>Undefined 类型表示值不确定，只有一个值: undefined。</p>
+<h3 id="Null-类型"><a href="#Null-类型" class="headerlink" title="Null 类型"></a>Null 类型</h3><p>Null 类型表示有值，值为空，只有一个值: null。</p>
+<h3 id="符号类型"><a href="#符号类型" class="headerlink" title="符号类型"></a>符号类型</h3><p>符号类型是一种特殊的、不可变的数据类型，可以作为对象属性的标识符使用。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>在计算机科学中, 对象是指内存中的可以被 标识符 引用的一块区域.<br>其他数据类型之外的所有数据都是对象类型。Array、Function可以看作是特殊的Object。</p>
+<h2 id="数据类型的判断"><a href="#数据类型的判断" class="headerlink" title="数据类型的判断"></a>数据类型的判断</h2><p>4种方法: typeof、instanceof、constructor、Object.prototype.toString</p>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>typeof操作符返回一个字符串,指示未经计算的操作数的类型。</p>
+<ul>
+<li>Undefined “undefined”</li>
+<li>Null “object”</li>
+<li>Boolean “boolean”</li>
+<li>Number “number”</li>
+<li>String “string”</li>
+<li>Symbol “symbol”</li>
+<li>函数对象 “function”</li>
+<li>任何其他对象 “object”</li>
+</ul>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>constructor属性返回一个指向创建了该对象原型的函数引用。</p>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h3><p>toString() 方法返回一个表示该对象的字符串。</p>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><ul>
+<li>typeof 只能检测基本数据类型，对于null还有Bug；</li>
+<li>instanceof 适用于检测对象，它是基于原型链运作的；</li>
+<li>constructor 指向的是最初创建者，而且容易伪造，不适合做类型判断；</li>
+<li>instanceof 和 constructor 都是基于引用判等的类型检查，都会有跨窗口问题。</li>
+<li>Object.prototype.toString 适用于内置类型（包括基本数据类型和内置对象）的类型判断；</li>
+</ul>
+<h1 id="Reference-amp-Further-reading"><a href="#Reference-amp-Further-reading" class="headerlink" title="Reference &amp; Further reading"></a>Reference &amp; Further reading</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="external">JavaScript 数据类型和数据结构 - MDN</a></p>
+<p><a href="https://segmentfault.com/q/1010000000464600" target="_blank" rel="external">如何正确判断js数据类型</a></p>
+<p><a href="http://harttle.com/2015/09/18/js-type-checking.html" target="_blank" rel="external">如何检查JavaScript变量类型？</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/blog/2017/JS参数传递/" class="prev">上一篇</a><a href="/blog/2017/CS从入门到放弃/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2017 <a href="https://gitjcc.github.io/blog">Jesse</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
