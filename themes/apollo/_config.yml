@@ -1,0 +1,21 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    GitHub: https://github.com/gitjcc
+    About: /about.html
+
+favicon: /favicon.ico
+logo: /favicon.ico
+
+# Comment
+# e.g disqus: seansun
+disqus:
+duoshuo:
+cloudTie:
+
+# Analytics
+# google-analytics:
+ga:
+
+# Copyright Infomation
+startyear: 2015
