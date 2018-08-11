@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog</title>
+  
+  <subtitle>CS从入门到放弃</subtitle>
+  <link href="/blog-hexo/atom.xml" rel="self"/>
+  
+  <link href="https://gitjcc.github.io/blog-hexo/"/>
+  <updated>2018-03-01T04:58:44.363Z</updated>
+  <id>https://gitjcc.github.io/blog-hexo/</id>
+  
+  <author>
+    <name>Jesse</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 NPM 镜像源</title>
+    <link href="https://gitjcc.github.io/blog-hexo/2018/%E4%BD%BF%E7%94%A8NPM%E9%95%9C%E5%83%8F%E6%BA%90/"/>
+    <id>https://gitjcc.github.io/blog-hexo/2018/使用NPM镜像源/</id>
+    <published>2018-03-01T04:58:44.363Z</published>
+    <updated>2018-03-01T04:58:44.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于一些原因，国内访问国外 Internet 并不是那么顺畅。虽然对程序员来说，会访问国外 Internet 是基本素质，但有的时候也会遇到不容易跨过去的沟沟坎坎。比如 NPM 安装项目依赖包的时候，有些包（比如 node-sass, electron）需要另行下载额外的文件，这些文件大都是托管在 Amazon 的 AWS 上，安装成功的几率很低。好在国内有镜像（感谢国内提供开源镜像的公司和机构），只需要把源改到国内镜像，就可以解决这个问题，同时大大提升各种包的安装速度。</p><p>以修改 .npmrc 文件，将 NPM 源改为淘宝镜像源为例。</p><h2 id="npmrc文件"><a href="#npmrc文件" class="headerlink" title=".npmrc文件"></a>.npmrc文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node/</span><br><span class="line">disturl=https://npm.taobao.org/dist    ; node/dist</span><br><span class="line"></span><br><span class="line">phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs</span><br><span class="line">chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver</span><br><span class="line">operadriver_cdnurl=http://npm.taobao.org/mirrors/operadriver</span><br><span class="line"></span><br><span class="line">ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/</span><br><span class="line"></span><br><span class="line">SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass/</span><br><span class="line"></span><br><span class="line">NWJS_URLBASE=http://npm.taobao.org/mirrors/nwjs/v</span><br></pre></td></tr></table></figure><h2 id="Reference-amp-Further-Reading"><a href="#Reference-amp-Further-Reading" class="headerlink" title="Reference &amp; Further Reading"></a>Reference &amp; Further Reading</h2><p><a href="https://npm.taobao.org/mirrors" target="_blank" rel="noopener">淘宝NPM镜像</a></p><p><a href="https://docs.npmjs.com/files/npmrc" target="_blank" rel="noopener">npmrc</a></p><p><a href="https://docs.npmjs.com/misc/config" target="_blank" rel="noopener">npm-config</a></p><p><a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">package.json</a></p><p><a href="https://docs.npmjs.com/cli/npm" target="_blank" rel="noopener">NPM</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于一些原因，国内访问国外 Internet 并不是那么顺畅。虽然对程序员来说，会访问国外 Internet 是基本素质，但有的时候也会遇到不容易跨过去的沟沟坎坎。比如 NPM 安装项目依赖包的时候，有些包（比如 node-sass, electron）需要另行下载额外的文
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NW.js 安装</title>
+    <link href="https://gitjcc.github.io/blog-hexo/2018/NW.js%E5%AE%89%E8%A3%85/"/>
+    <id>https://gitjcc.github.io/blog-hexo/2018/NW.js安装/</id>
+    <published>2018-03-01T04:58:44.362Z</published>
+    <updated>2018-03-01T04:58:44.362Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近公司的 electron 桌面应用有了兼容 windows xp 系统的需求，决定用 NW.js 的 v0.14.7 版本来重新实现一下。然而第一步安装 NW.js 就受阻了。</p><p>经过若干次的安装失败和仅有的两次安装成功（狗屎运，在家安装两次都成功了，以为公司网有问题），最终找到合适的解决方案。</p><p>主要原因 NW.js 的 NPM 包没有包括所有文件，部分文件需要另行下载。而这些文件都是托管在 Amazon 的 AWS 上的。由于 GFW 的存在，国内直接访问 AWS 很困难，用 VPN 访问也困难。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、更改-nwjs-urlbase，使用国内镜像，比如淘宝镜像。"><a href="#1、更改-nwjs-urlbase，使用国内镜像，比如淘宝镜像。" class="headerlink" title="1、更改 nwjs_urlbase，使用国内镜像，比如淘宝镜像。"></a>1、更改 nwjs_urlbase，使用国内镜像，比如淘宝镜像。</h3><blockquote><p>nwjs_urlbase=<a href="http://npm.taobao.org/mirrors/nwjs/v" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/nwjs/v</a></p></blockquote><h3 id="2、更改-nwjs-urlbase，使用离线包。"><a href="#2、更改-nwjs-urlbase，使用离线包。" class="headerlink" title="2、更改 nwjs_urlbase，使用离线包。"></a>2、更改 nwjs_urlbase，使用离线包。</h3><p>使用离线包安装，需要将离线包放在版本号文件夹下，比如 somewhere/v0.14.7/xx.zip。</p><blockquote><p>nwjs_urlbase=file:///home/somewhere/v</p></blockquote><blockquote><p>nwjs_urlbase=file://D:/somewhere/v</p></blockquote><blockquote><p>nwjs_urlbase=<a href="http://localhost:5399/somewhere/v" target="_blank" rel="noopener">http://localhost:5399/somewhere/v</a></p></blockquote><h3 id="3、直接解压离线包。"><a href="#3、直接解压离线包。" class="headerlink" title="3、直接解压离线包。"></a>3、直接解压离线包。</h3><p>先用 NPM 安装 nwjs，失败后（或在安装到运行 Node install.js 时手动放弃）将下载的 NW.js SDK 压缩包解压到对应的 node_modules\nw\nwjs 文件夹下。（注意包的完整性，作者使用 Chrome 浏览器在 AWS 下载的若干个包都是不完整的，最后用迅雷才下载到完整的包）</p><h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>由于 NWjs 的 install.js 会从 urlBase(nwjs_urlbase) + version(0.14.7) 路径寻找安装文件。</p><ul><li>如果离线安装只要路径与 urlBase(nwjs_urlbase) + version(比如’0.14.7’) 相同即可。</li><li>如果淘宝镜像安装，其资源的路径是 v0.14.7，所以 urlBase 最后要加上 ‘v’。</li><li>官方源会默认 urlBase=<a href="http://dl.nwjs.io/v。" target="_blank" rel="noopener">http://dl.nwjs.io/v。</a></li></ul><h2 id="Reference-amp-Further-Reading"><a href="#Reference-amp-Further-Reading" class="headerlink" title="Reference &amp; Further Reading"></a>Reference &amp; Further Reading</h2><ul><li><a href="https://github.com/nwjs/npm-installer" target="_blank" rel="noopener">nwjs/npm-installer</a></li><li><a href="https://npm.taobao.org" target="_blank" rel="noopener">淘宝 NPM 镜像</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;最近公司的 electron 桌面应用有了兼容 windows xp 系统的需求，决定用 NW.js 的 v0.14.7 版本来重新实现一下
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CS从入门到放弃</title>
+    <link href="https://gitjcc.github.io/blog-hexo/2018/CS%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/"/>
+    <id>https://gitjcc.github.io/blog-hexo/2018/CS从入门到放弃/</id>
+    <published>2018-03-01T04:58:44.361Z</published>
+    <updated>2018-03-01T04:58:44.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CS从入门到放弃"><a href="#CS从入门到放弃" class="headerlink" title="CS从入门到放弃"></a>CS从入门到放弃</h1><p>这个博客用来记录自己在CS世界中的学习、心得和思考。</p><a id="more"></a><h2 id="入门-todo"><a href="#入门-todo" class="headerlink" title="入门 (todo)"></a>入门 (todo)</h2><ul><li style="list-style: none"><input type="checkbox" checked> CS, Computer Science计算机科学。</li></ul><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul><li style="list-style: none"><input type="checkbox"> git &amp; github</li><li style="list-style: none"><input type="checkbox"> vscode &amp; webstorm</li><li style="list-style: none"><input type="checkbox"> hexo &amp; jekyll</li></ul><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul><li style="list-style: none"><input type="checkbox"> webpack</li></ul><h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><ul><li style="list-style: none"><input type="checkbox"> JS &amp; ES &amp; TS</li><li style="list-style: none"><input type="checkbox"> Vue &amp; React</li><li style="list-style: none"><input type="checkbox"> Koa &amp; Express</li></ul><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li style="list-style: none"><input type="checkbox"> Python</li><li style="list-style: none"><input type="checkbox"> Flask</li></ul><h2 id="放弃"><a href="#放弃" class="headerlink" title="放弃"></a>放弃</h2><ul><li style="list-style: none"><input type="checkbox"> 当你的眼中不再只有CS，才能真的认识CS。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CS从入门到放弃&quot;&gt;&lt;a href=&quot;#CS从入门到放弃&quot; class=&quot;headerlink&quot; title=&quot;CS从入门到放弃&quot;&gt;&lt;/a&gt;CS从入门到放弃&lt;/h1&gt;&lt;p&gt;这个博客用来记录自己在CS世界中的学习、心得和思考。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
